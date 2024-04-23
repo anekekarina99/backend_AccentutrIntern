@@ -9,18 +9,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/search")
-public class SearchController {
+@RequestMapping("/report")
+public class ReportController {
 
     private final SearchService searchService;
 
     @Autowired
-    public SearchController(SearchService searchService) {
+    public ReportController(SearchService searchService) {
         this.searchService = searchService;
     }
 
     @GetMapping
-    public SearchResponse search(@RequestParam(name = "q", required = false) String query) {
+    public SearchResponse report(@RequestParam(name = "q", required = false) String query) {
         return searchService.performSearch(query);
     }
 }
